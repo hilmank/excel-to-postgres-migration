@@ -108,12 +108,6 @@ async Task MigrateIndividuData(NpgsqlConnection conn, string folderPath, string 
     Console.WriteLine($"Selesai memproses data dari folder {folderPath} ke table {tableName}.");
 }
 
-
-
-
-
-
-
 var builder = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
@@ -121,8 +115,8 @@ var builder = new ConfigurationBuilder()
 IConfiguration config = builder.Build();
 
 var connectionString = config.GetConnectionString("DefaultConnection");
-var individuFolderPath = @"D:\DTSEN-SPLIT\Individu"; // Folder berisi banyak file excel individu
-var keluargaFolderPath = @"D:\DTSEN-SPLIT\Keluarga"; // Folder berisi banyak file excel keluarga
+var individuFolderPath = config["DataSettings:IndividuFolderPath"];
+var keluargaFolderPath = config["DataSettings:KeluargaFolderPath"];
 
 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 using var conn = new NpgsqlConnection(connectionString);
