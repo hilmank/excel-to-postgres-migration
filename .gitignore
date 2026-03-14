@@ -1,0 +1,39 @@
+## [ .NET ]
+# Hasil build dan publikasi
+bin/
+obj/
+out/
+publish/
+
+# Folder tool .NET
+.dotnet/
+.tools/
+
+# User-local config (Database password, dll)
+appsettings.json
+appsettings.Development.json
+
+## [ Visual Studio / VS Code ]
+# Folder metadata IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## [ OS / System ]
+# File sampah sistem operasi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## [ Project Specific ]
+# Jangan upload file Excel asli ke GitHub (Data Sensitif)
+*.xlsx
+*.xls
+*.csv
+/DataExcel/
+
+# Log files
+*.log
