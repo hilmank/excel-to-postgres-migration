@@ -107,3 +107,13 @@ Keuntungannya:
 - Hemat Disk I/O: Mengurangi beban sistem saat memasukkan 1 juta record sekaligus.
 - Catatan: Jika database mati mendadak (crash), data di tabel ini bisa hilang. Namun, untuk proses staging, ini bukan masalah karena Anda tinggal menjalankan ulang migrasinya.
 */
+
+INSERT INTO qst.refkuisioner
+(kode, nama) values 
+('keluarga-26', 'Sensus Keluarga');
+
+INSERT INTO qst.kuisioner
+(id, kode, tahun, namapendek, nama, deskripsi, ketkodedata, status, tanggalmulai, tanggalselesai, iconfile, bgcolor, imagefile)
+select 'keluarga-2026', 'keluarga-26', tahun, 'Pendataan Keluarga 2026', 'Pendataan Keluarga 2026', 'Pendataan Keluarga 2026', ketkodedata, status, tanggalmulai, tanggalselesai, iconfile, bgcolor, imagefile
+from qst.kuisioner where id = 'keluarga_2026';
+

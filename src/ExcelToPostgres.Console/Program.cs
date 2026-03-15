@@ -115,8 +115,16 @@ var builder = new ConfigurationBuilder()
 IConfiguration config = builder.Build();
 
 var connectionString = config.GetConnectionString("DefaultConnection");
+if (string.IsNullOrWhiteSpace(connectionString))
+    throw new InvalidOperationException("Connection string is not configured in appsettings.json.");
+
 var individuFolderPath = config["DataSettings:IndividuFolderPath"];
+if (string.IsNullOrWhiteSpace(individuFolderPath))
+    throw new InvalidOperationException("IndividuFolderPath is not configured or is empty in appsettings.json.");
+
 var keluargaFolderPath = config["DataSettings:KeluargaFolderPath"];
+if (string.IsNullOrWhiteSpace(keluargaFolderPath))
+    throw new InvalidOperationException("KeluargaFolderPath is not configured or is empty in appsettings.json.");
 
 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 using var conn = new NpgsqlConnection(connectionString);
